@@ -35,7 +35,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Description of your program')
     parser = create_parser(parser)
-    parser.add_argument('-output_path', '--output_path', type=str, default='/tmp')
+    parser.add_argument('-output_path_infer', '--output_path', type=str, default='/tmp')
     parser.add_argument('-lb', '--loss_percentile_bgt', type=float, default=None)
     parser.add_argument('-ls', '--loss_percentile_smt', type=float, default=5)
     parser.add_argument('-dataset', '--dataset', type=str, default='dev')
