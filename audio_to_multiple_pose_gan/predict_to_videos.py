@@ -19,7 +19,7 @@ def main(args):
 
     pgan = PoseGAN(args, seq_len=args.seq_len)
     if args.checkpoint:
-        pgan.restore(args.checkpoint, scope_list=['generator', 'discriminator'])
+        pgan.restore(args.checkpoint, scope_list=['generator'])
     else:
         print "No checkpoint provided."
 
