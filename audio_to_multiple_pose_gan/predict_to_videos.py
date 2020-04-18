@@ -23,8 +23,8 @@ def main(args):
     else:
         print "No checkpoint provided."
 
-    if not(os.path.exists(args.output_path)):
-        os.makedirs(args.output_path)
+    if not(os.path.exists(args.output_path_infer)):
+        os.makedirs(args.output_path_infer)
 
     keypoints1_list, keypoints2_list, loss = pgan.predict_df(df_dev, cfg, [0,0], [0,0])
     keypoints1_list = translate_keypoints(keypoints1_list, [900, 290])
@@ -35,7 +35,7 @@ def main(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Description of your program')
     parser = create_parser(parser)
-    parser.add_argument('-output_path_infer', '--output_path', type=str, default='/tmp')
+    parser.add_argument('-output_path_infer', '--output_path_infer', type=str, default='/tmp')
     parser.add_argument('-lb', '--loss_percentile_bgt', type=float, default=None)
     parser.add_argument('-ls', '--loss_percentile_smt', type=float, default=5)
     parser.add_argument('-dataset', '--dataset', type=str, default='dev')
