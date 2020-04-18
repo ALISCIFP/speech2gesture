@@ -13,10 +13,10 @@ from logging import getLogger
 logger = getLogger("train.saver")
 # logger.setLevel(logging.ERROR)
 parser = argparse.ArgumentParser(description='Description of your program')
-parser.add_argument('-c','--csv_path', default='/data/efros/dataset/Gestures/frames_df_2_16_19.csv')
-parser.add_argument('-sp','--save_path', default='/data/efros/dataset/Gestures_extras/test_256_all/') # 1 to save 0 to skip audio
-parser.add_argument('-sc','--save_csv', default='/data/efros/dataset/Gestures_extras/test_256_all.csv')
-parser.add_argument('-b','--base_dataset_path', default='/data/efros/dataset/Gestures/')
+parser.add_argument('-c','--csv_path', default='/export/zs/s2g/frames_df_2_16_19.csv')
+parser.add_argument('-sp','--save_path', default='/export/zs/s2g/test_256_all/') # 1 to save 0 to skip audio
+parser.add_argument('-sc','--save_csv', default='/export/zs/s2g/test_256_all.csv')
+parser.add_argument('-b','--base_dataset_path', default='/export/zs/s2g/')
 parser.add_argument('-nc','--num_cores', type=int, default=1)
 parser.add_argument('-nf','--num_frames', type=int, default=64)
 parser.add_argument('-d','--debug', type=int, default=0)
