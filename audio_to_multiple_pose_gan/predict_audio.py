@@ -27,7 +27,7 @@ def main(args):
     cfg = get_config(args.config)
     pgan = PoseGAN(args, seq_len=padded_pose_shape)
     if args.checkpoint:
-        pgan.restore(args.checkpoint, scope_list=['generator', 'discriminator'])
+        pgan.restore(args.checkpoint, scope_list=['generator'])
     else:
         print "No checkpoint provided."
 
