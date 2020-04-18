@@ -1,5 +1,6 @@
 import matplotlib
 matplotlib.use('Agg')
+from common.consts import FRAMES_PER_SAMPLE, SR
 import logging
 logging.basicConfig()
 import argparse
