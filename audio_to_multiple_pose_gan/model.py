@@ -180,15 +180,19 @@ class PoseGAN():
                 train_ratio = cfg['train_ratio']
             else:
                 train_ratio = None
+            scope_list = ['generator', 'discriminator']
+            variables = []
+            for s in scope_list:
+                variables += tf.global_variables(scope=s)
 
             if lowest_validation_loss > avg_loss:
                 lowest_validation_loss = avg_loss
-                tf.train.Saver().save(self.sess, os.path.join(base_path,
+                tf.train.Saver(variables).save(self.sess, os.path.join(base_path,
                                                               'best_ckpt-step_%s_validation_loss_%.3f.ckp' % (
                                                               ITR_PER_EPOCH * j, avg_loss)))
 
             if j % 15 == 14:
-                tf.train.Saver().save(self.sess, os.path.join(base_path, 'ckpt-step-%s.ckp' % (ITR_PER_EPOCH * j)))
+                tf.train.Saver(variables).save(self.sess, os.path.join(base_path, 'ckpt-step-%s.ckp' % (ITR_PER_EPOCH * j)))
                 if self.args.output_videos:
                     self.save_prediction_video_by_percentiles(df_dev, keypoints1_list, keypoints2_list,
                                                               os.path.join(base_path, str(j)), train_ratio=train_ratio,
