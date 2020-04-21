@@ -184,6 +184,8 @@ class PoseGAN():
             variables = []
             for s in scope_list:
                 variables += tf.global_variables(scope=s)
+            print(variables)
+            break
 
             if lowest_validation_loss > avg_loss:
                 lowest_validation_loss = avg_loss
