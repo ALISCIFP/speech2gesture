@@ -191,7 +191,7 @@ class PoseGAN():
                                                               'best_ckpt-step_%s_validation_loss_%.3f.ckp' % (
                                                               ITR_PER_EPOCH * j, avg_loss)))
 
-            if j % 15 == 14:
+            if j % 1 == 0:
                 tf.train.Saver(variables).save(self.sess, os.path.join(base_path, 'ckpt-step-%s.ckp' % (ITR_PER_EPOCH * j)))
                 if self.args.output_videos:
                     self.save_prediction_video_by_percentiles(df_dev, keypoints1_list, keypoints2_list,
