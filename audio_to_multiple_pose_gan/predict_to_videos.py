@@ -19,12 +19,12 @@ def main(args):
 
     pgan = PoseGAN(args, seq_len=args.seq_len)
     if args.checkpoint:
-        pgan.restore(args.checkpoint, scope_list=['generator'])
+        pgan.restore(args.checkpoint, scope_list=['generator', 'discriminator'])
     else:
         print "No checkpoint provided."
 
-    if not(os.path.exists(args.output_path_infer)):
-        os.makedirs(args.output_path_infer)
+    if not(os.path.exists(args.output_path)):
+        os.makedirs(args.output_path)
 
     keypoints1_list, keypoints2_list, loss = pgan.predict_df(df_dev, cfg, [0,0], [0,0])
     keypoints1_list = translate_keypoints(keypoints1_list, [900, 290])
