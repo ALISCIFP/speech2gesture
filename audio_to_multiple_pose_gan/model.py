@@ -232,7 +232,8 @@ class PoseGAN():
         variables = []
         for s in scope_list:
             variables += tf.global_variables(scope=s)
-        tf.train.Saver().restore(self.sess, ckp)
+        print(variables)
+        tf.train.Saver(variables).restore(self.sess, ckp)
 
     def save_prediction_video(self, df, keypoints_pred, keypoints_gt, save_path, limit=None, loss=None):
         if limit == None:
