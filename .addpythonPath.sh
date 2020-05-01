@@ -1,1 +1,1 @@
-export PYTHONPATH=$PYTHONPATH:/home/zs/gitlab/speech2gesture
+export PYTHONPATH=$PYTHONPATH:/home/zs/github/speech2gesture
